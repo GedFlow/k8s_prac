@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-flask
+spec:
+  template:
+    metadata:
+      labels:
+        app: job-db-upgrade
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: db-upgrade
+        image: freedom98/flask:k3.0
+        command: ["flask", "db", "upgrade"]
+        envFrom:
+        - configMapRef:
+            name: web-configmap
+        - secretRef:
+            name: web-secret

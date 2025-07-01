@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  MYSQL_DATABASE: "cake"
+  MYSQL_USER: "cccr"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-configmap
+data:
+  DB_HOST: "mysql-svc" 
+  DB_USER: "cccr"
+  DB_NAME: "cake"
+  FLASK_APP: "run.py"
