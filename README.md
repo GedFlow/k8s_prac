@@ -66,3 +66,7 @@ spec:
 ```
 위 코드는 **db-deploy.yml** 파일 내용이다.
 맨 아래 주석처리 된 부분을 설명대로 mysql-pvc-hp를 mysql-pvc-nfs 로 바꾸면 nfs 볼륨을 사용할 수 있다. 
+nfs 볼륨을 사용하기 전에 서버에 nfs-server를 설치하고, /srv/nfs-volume 경로를 생성해 주어야 한다.
+
+> 본 프로젝트는 minikube 환경에서 작업하였기 때문에 DB를 hostPath방식으로 연결할 수 있었다.
+> 하지만 멀티노드 환경에서 본 프로젝트를 구동하고싶다면, nfs 방식으로 바꿔야 제대로 실행될 확률이 높다.
