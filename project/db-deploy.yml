@@ -28,4 +28,5 @@ spec:
       volumes:
       - name: mysql-storage
         persistentVolumeClaim:
-          claimName: mysql-pvc-hp # 여기를 mysql-pvc-nfs 로 바꾸면 nfs 볼륨을 사용할 수 있다!
+          claimName: mysql-pvc-hp # hostPath 사용 설정
+          #claimName: mysql-pvc-nfs # nfs 사용 설정
