@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /srv/nfs-volume
-    server: 192.168.100.25
+    server: 192.168.100.25 # 이 부분 ip를 nfs가 가동중인 서버의 ip로 바꿔줄 것

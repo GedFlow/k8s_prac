@@ -67,7 +67,23 @@ spec:
 ```
 위 코드는 **db-deploy.yml** 파일 내용이다.
 맨 아래 주석처리 된 부분을 설명대로 mysql-pvc-hp를 mysql-pvc-nfs 로 교체하여 nfs 볼륨을 사용할 수 있다. 
-nfs 볼륨을 사용하기 전에 서버에 nfs-server를 설치하고, /srv/nfs-volume 경로를 생성해 주어야 한다.
 
-> 본 프로젝트는 minikube 환경에서 작업하였기 때문에 DB를 hostPath방식으로 연결할 수 있었다.
-> 하지만 멀티노드 환경에서 본 프로젝트를 구동하고싶다면, nfs 방식으로 바꿔야 제대로 실행될 확률이 높다.
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-nfs
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /srv/nfs-volume
+    server: 192.168.100.25 # 이 부분 ip를 nfs가 가동중인 서버의 ip로 바꿔줄 것
+```
+위 코드는 **pv-nfs.yml** 파일 내용이다.
+맨 아래 주석 설명대로 ip주소를 nfs-server가 가동중인 서버의 ip주소로 바꿔줘야 한다!
+
+> nfs 볼륨을 사용하려면 먼저 control plane에 nfs-server를 설치 및 실행하고, /srv/nfs-volume 경로를 생성해 주어야 한다.
