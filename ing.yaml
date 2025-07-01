@@ -1,0 +1,9 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ing
+spec:
+  rules:
+  - host: myapp.example.com
+    http:
+      path
