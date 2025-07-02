@@ -23,7 +23,7 @@
 ```
 
 ## 사용설명서
-```
+```bash
 # helm chart 실행
 $ helm install <별칭> ptj-miniproject/flaskApp
 
