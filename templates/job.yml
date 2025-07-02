@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-flask
+  name: {{ .Release.Name }}-job-flask
 spec:
   template:
     metadata:
@@ -15,6 +15,6 @@ spec:
         command: ["flask", "db", "upgrade"]
         envFrom:
         - configMapRef:
-            name: web-configmap
+            name: {{ .Release.Name }}-web-configmap
         - secretRef:
-            name: web-secret
+            name: {{ .Release.Name }}-web-secret

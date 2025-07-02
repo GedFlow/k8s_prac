@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deploy
+  name: {{ .Release.Name }}-web-deploy
   labels:
     app: web-deploy
 spec:
@@ -32,8 +32,8 @@ spec:
             memory: 500Mi
         envFrom:
         - configMapRef:
-            name: web-configmap
+            name: {{ .Release.Name }}-web-configmap
         - secretRef:
-            name: web-secret
+            name: {{ .Release.Name }}-web-secret
         ports:
         - containerPort: 5000

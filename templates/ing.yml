@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp-ing
+  name: {{ .Release.Name }}-ing
 spec:
   tls:
   - hosts:
-    - deathnote.com
-    secretName: tls-secret
+    - diary.com
+    secretName: {{ .Release.Name }}-tls-secret
   rules:
-  - host: deathnote.com
+  - host: diary.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: svc-np
+            name: {{ .Release.Name }}-svc-np
             port:
               number: 80

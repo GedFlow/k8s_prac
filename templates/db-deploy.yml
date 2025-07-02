@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deploy
+  name: {{ .Release.Name }}-db-deploy
 spec:
   replicas: 1
   selector:
@@ -19,14 +19,14 @@ spec:
         - containerPort: 3306
         envFrom: 
         - secretRef:
-            name: mysql-secret
+            name: {{ .Release.Name }}-db-secret
         - configMapRef:
-            name: mysql-configmap
+            name: {{ .Release.Name }}-db-configmap
         volumeMounts:
-        - name: mysql-storage
+        - name: {{ .Release.Name }}-db-storage
           mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-storage
+      - name: {{ .Release.Name }}-db-storage
         persistentVolumeClaim:
-          claimName: mysql-pvc-hp # hostPath 사용 설정
-          #claimName: mysql-pvc-nfs # nfs 사용 설정
+          claimName: {{ .Release.Name }}-pvc-hp # hostPath 사용 설정
+          #claimName: {{ .Release.Name }}-pvc-nfs # nfs 사용 설정
