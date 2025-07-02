@@ -3,13 +3,13 @@ entries:
   helmChart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-07-02T11:50:21.608762704+09:00"
+    created: "2025-07-02T14:03:31.038343+09:00"
     description: ptj kubernetes mini project
-    digest: d666e86ecfe3a4e6f3fde8081f8c76dc6afae783331f3b7d36f826fa087621a7
-    kubeVersion: "3.1"
+    digest: fc119bb5605684e7f6bd9d60ea948f8aa508ff7472a190e75cdb9f0e63b2595a
+    kubeVersion: '>= 1.25.0-0'
     name: helmChart
     type: application
     urls:
     - https://GedFlow.github.io/k8s_prac/helmChart-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-02T11:50:21.603308507+09:00"
+generated: "2025-07-02T14:03:31.035873249+09:00"
