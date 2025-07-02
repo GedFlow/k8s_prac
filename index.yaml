@@ -1,15 +1,15 @@
 apiVersion: v1
 entries:
-  helmChart:
+  flaskApp:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-07-02T14:03:31.038343+09:00"
+    created: "2025-07-02T14:17:33.315369356+09:00"
     description: ptj kubernetes mini project
-    digest: fc119bb5605684e7f6bd9d60ea948f8aa508ff7472a190e75cdb9f0e63b2595a
+    digest: 27b8721a79e526bf494ca9eab7dc1c6103a585cd0310ec041f20bfd7f3704195
     kubeVersion: '>= 1.25.0-0'
-    name: helmChart
+    name: flaskApp
     type: application
     urls:
-    - https://GedFlow.github.io/k8s_prac/helmChart-0.1.0.tgz
-    version: 0.1.0
-generated: "2025-07-02T14:03:31.035873249+09:00"
+    - https://GedFlow.github.io/k8s_prac/flaskApp-1.tgz
+    version: "1"
+generated: "2025-07-02T14:17:33.311735786+09:00"

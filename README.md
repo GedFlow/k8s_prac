@@ -24,6 +24,13 @@
 
 ## 사용설명서
 ```
+# helm chart 실행
+$ helm install <별칭> ptj-miniproject/flaskApp
+
+# helm chart 제거
+$ helm uninstall <별칭>
+
+# kustomize 사용시
 kubectl apply -k ./project
 ```
 위 명령어를 사용하여 즉시 Ingress - web(flask) - DB 세팅을 구성할 수 있다.
