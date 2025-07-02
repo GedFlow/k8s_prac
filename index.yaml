@@ -3,13 +3,14 @@ entries:
   flaskApp:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-07-02T14:18:31.370382651+09:00"
+    created: "2025-07-02T14:26:30.521393931+09:00"
     description: ptj kubernetes mini project
-    digest: 11d2d1051345a5f627bdeaef55d2123eac51e384dab34f2067282640752c4df1
+    digest: 848dc4db51d00708e71431b9cafef379c43f42d536640168d7baae01233f0c33
+    icon: https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg
     kubeVersion: '>= 1.25.0-0'
     name: flaskApp
     type: application
     urls:
-    - https://GedFlow.github.io/k8s_prac/flaskApp-1.0.0.tgz
-    version: 1.0.0
-generated: "2025-07-02T14:18:31.364772257+09:00"
+    - https://GedFlow.github.io/k8s_prac/flaskApp-1.1.0.tgz
+    version: 1.1.0
+generated: "2025-07-02T14:26:30.513340805+09:00"
