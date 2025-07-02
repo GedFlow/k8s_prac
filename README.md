@@ -18,7 +18,7 @@
 [완]- flask configmap으로 구성 설정
 [완]- DB configmap으로 구성 설정
 [완]- DB PV/PVC 구성 추가
-- Helm 배포
+[완]- Helm 배포
 - DB statefulSet으로 이중화 (시간 남으면 할 것)
 ```
 
