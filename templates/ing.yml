@@ -5,10 +5,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - diary.com
+    - {{ .Values.ingress.host }}
     secretName: {{ .Release.Name }}-tls-secret
   rules:
-  - host: diary.com
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
       - path: /

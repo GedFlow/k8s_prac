@@ -28,5 +28,4 @@ spec:
       volumes:
       - name: {{ .Release.Name }}-db-storage
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pvc-hp # hostPath 사용 설정
-          #claimName: {{ .Release.Name }}-pvc-nfs # nfs 사용 설정
+          claimName: {{ .Release.Name }}-pvc

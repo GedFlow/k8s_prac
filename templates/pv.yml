@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Release.Name }}-pv
+spec:
+  capacity:
+    storage: {{ .Values.persistence.size }}
+  accessModes:
+    - {{ .Values.persistence.accessMode }}
+  persistentVolumeReclaimPolicy: {{ .Values.persistence.reclaimPolicy }}
+  {{- if eq .Values.persistence.type "nfs" }}
+  nfs:
+    path: {{ .Values.persistence.nfs.path }}
+    server: {{ .Values.persistence.nfs.serverIp }}
+  {{- else if eq .Values.persistence.type "hostPath" }}
+  hostPath:
+    path: {{ .Values.persistence.hostPath.path }}
+    type: DirectoryOrCreate
+  {{- end }}

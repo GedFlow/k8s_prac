@@ -1,6 +1,39 @@
-# Default values for helmChart.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# 커스텀 가능한 values의 default 값
+
+ingress:
+  enabled: true
+  # DNS 호스트 이름 설정 (이름 변경 시 TLS-Termination 설정이 정상 적용되지 않을 수 있음)
+  host: diary.com
+
+# 2. Persistent Volume(PV) 설정
+persistence:
+  enabled: true
+  # pvc 삭제시 pv 처리 방식 설정 [Retain / Recycle / Delete]
+  reclaimPolicy: Retain
+  # type: [hostPath / nfs] 
+  type: hostPath
+  # [Retain / Recycle / Delete]
+  reclaimPolicy: Retain
+  # 스토리지 크기 설정
+  size: 1Gi
+  # 스토리지 접근 모드 설정 [ReadWriteOnce / ReadWriteMany] (hostPath=RWO, NFS=RWM)
+  accessMode: ReadWriteOnce
+  # 스토리지 클래스 이름
+  storageClassName: my-pv
+
+  # hostPath 선택 시 사용할 설정
+  hostPath:
+    path: /srv/hostPath-volume
+
+  # nfs 선택 시 사용할 설정
+  nfs:
+    # 3. NFS 서버 IP
+    serverIp: 192.168.100.25
+    path: /srv/nfs-volume
+
+#############################
+# 여기까지가 custom values  #
+#############################
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1
@@ -21,14 +54,9 @@ fullnameOverride: ""
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
-  # Automatically mount a ServiceAccount's API credentials?
   automount: true
-  # Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
   name: ""
 
 # This is for setting Kubernetes Annotations to a Pod.
@@ -37,17 +65,8 @@ podAnnotations: {}
 # This is for setting Kubernetes Labels to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}
-
 podSecurityContext: {}
-  # fsGroup: 2000
-
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
@@ -56,34 +75,7 @@ service:
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
 
-# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
-ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
@@ -96,28 +88,12 @@ readinessProbe:
     port: http
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
 volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
