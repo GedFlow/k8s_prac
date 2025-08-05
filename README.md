@@ -25,13 +25,13 @@
 ## 사용설명서
 ```bash
 # helm chart 실행
-$ helm install <별칭> ptj-miniproject/flaskApp
+$ helm install <별칭> ptj-miniproject/flaskDiary
 
 # helm chart 제거
 $ helm uninstall <별칭>
 
 # helm 커스터마이징
-$ helm install <별칭> ptj-miniproject/flaskApp -f <커스텀.yaml>
+$ helm install <별칭> ptj-miniproject/flaskDiary -f <커스텀.yaml>
 
 # kustomize 사용시
 kubectl apply -k ./project
