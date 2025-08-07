@@ -22,3 +22,17 @@ spec:
     targetPort: 3306
   selector:
     app: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-svc-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: web-deploy
+---
+
