@@ -3,7 +3,7 @@ name: flaskDiary
 description: ptj kubernetes mini project. You can customize pv, pvc and ingress settings.
 type: application
 
-version: 2.1.1
+version: 2.1.2
 appVersion: "1.16.0"
 kubeVersion: ">= 1.25.0-0"
 

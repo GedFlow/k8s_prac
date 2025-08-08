@@ -3,15 +3,15 @@ entries:
   flaskDiary:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-07-07T10:14:24.327297902+09:00"
+    created: "2025-08-08T14:13:46.64927636+09:00"
     description: ptj kubernetes mini project. You can customize pv, pvc and ingress
       settings.
-    digest: e9ff3682d0f05c3360e5e45200e3ee44bcff379ae4d5fe6be79e72a2f01b4132
+    digest: da3d468584cc861ee2c8691dcf85cc315d916def21a0f4124deab9b922d82cf8
     icon: https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg
     kubeVersion: '>= 1.25.0-0'
     name: flaskDiary
     type: application
     urls:
-    - https://GedFlow.github.io/k8s_prac/flaskDiary-2.1.1.tgz
-    version: 2.1.1
-generated: "2025-07-07T10:14:24.326422991+09:00"
+    - https://gedflow.github.io/k8s_prac/flaskDiary-2.1.2.tgz
+    version: 2.1.2
+generated: "2025-08-08T14:13:46.648513652+09:00"
